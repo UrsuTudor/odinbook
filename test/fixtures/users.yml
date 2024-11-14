@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  age: 1
-  city: MyString
+  name: Davie
+  age: 24
+  city: New York
+  email: davie504@gmail.com
+  encrypted_password: davie123
+
 
 two:
-  name: MyString
-  age: 1
-  city: MyString
+  name: Alice
+  age: 21
+  city: Boston
+  email: alice123@gmail.com
