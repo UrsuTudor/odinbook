@@ -1,7 +1,9 @@
 <%= turbo_frame_tag 'users' do %>
   <% users.each do |user| %>
-  <%= user.name %>
+    <%= user.name %>
+    <%= button_to 'Follow' %>
+    <br>   
   <% end %>
 <% end %>
 
-next step is to create the follow/unfollow link, and don't forget to add a log out button on your posts index
+<%= button_to 'Log out', destroy_user_session_path, method: :delete %>
