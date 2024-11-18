@@ -12,4 +12,8 @@ class User < ApplicationRecord
   belongs_to :follower, class_name: "User", optional: true
 
   has_many :followees, class_name: "User", foreign_key: "followee_id"
+
+
+  has_many :sent_follow_requests, class_name: "FollowRequest", foreign_key: "sender_id"
+  has_many :received_follow_requests, class_name: "FollowRequest", foreign_key: "recipient_id"
 end

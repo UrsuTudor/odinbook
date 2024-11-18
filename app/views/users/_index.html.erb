@@ -1,9 +1,21 @@
 <%= turbo_frame_tag 'users' do %>
   <% users.each do |user| %>
-    <%= user.name %>
-    <%= button_to 'Follow' %>
-    <br>   
+    <% unless user == current_user %>
+      <%= form_with(url: follow_requests_path, method: :post) do |f| %>
+        <%= f.hidden_field :sender_id, value: current_user.id %>
+        <%= f.hidden_field :recipient_id, value: user.id %>
+        <%= user.name %>
+        <%= f.submit 'Send Follow Request' %>
+        <br>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
 <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+
+Can send follow requests. Now:
+- update the button once the request has been sent
+- make the request visible on the view of the user who received it 
+- let the user accept or reject it (editing the status in the FollowRequests table and the relationship in the User table)
+- after creating posts, make the posts of followed users visible 
