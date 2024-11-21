@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [ :index ]
+  resources :users, only: [ :index ] do
+    member do
+      post "accept_follow_request"
+      post "reject_follow_request"
+    end
+  end
+
   resources :follow_requests, only: [ :create ]
+
 
   root to: "posts#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

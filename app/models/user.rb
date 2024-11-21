@@ -9,7 +9,6 @@ class User < ApplicationRecord
   validates :age, numericality: { only_integer: true }
 
   has_many :followers, class_name: "User", foreign_key: "follower_id"
-  belongs_to :follower, class_name: "User", optional: true
 
   has_many :followees, class_name: "User", foreign_key: "followee_id"
 

@@ -1,22 +1,48 @@
 <%= turbo_frame_tag 'users' do %>
-  Logged in as: <%= current_user.name %>
+  <h1>Logged in as: <%= current_user.name %> </h1> 
+
+<h3> Followers: </h3>
+<% current_user.followers.each do |f| %>
+  <%= f.name%> <br>
+<% end %>
+
+<% if received_follow_requests.any? %>
+  <h3>You have some follow requests pending:</h3>
+<% end %>
+
+  <% received_follow_requests.each do |req| %>
+    <%= req.sender.name %>
+
+    <%= form_with(url: accept_follow_request_user_path(req.sender.id), method: :post) do |f| %>
+      <%= f.hidden_field :follower_id, value: req.sender.id %>
+      <%= f.hidden_field :request_id, value: req.id %>
+      <%= f.submit 'Accept', data: { controller: "follow-buttons", action: "click->follow-buttons#change_accept_button", "follow-buttons-target": "button" } %>
+    <% end %>
+
+    <%= form_with(url: reject_follow_request_user_path(req.sender.id), method: :post) do |f| %>
+      <%= f.hidden_field :request_id, value: req.id %>
+      <%= f.submit 'Delete', data: { controller: "follow-buttons", action: "click->follow-buttons#change_reject_button", "follow-buttons-target": "button" } %>
+    <% end %>
+    <br>
+  <%end%>
+
+<h3>People:</h3>
   <% users.each do |user| %>
     <%= form_with(url: follow_requests_path, method: :post) do |f| %>
-      <%= f.hidden_field :sender_id, value: current_user.id %>
       <%= f.hidden_field :recipient_id, value: user.id %>
       <%= user.name %>
-      <% unless follow_requests.include?(user.id) %>
-          <%= f.submit 'Send Follow Request', data: { controller: "follow-request", action: "click->follow-request#disable_button", "follow-request-target": "button" } %>
+      <% unless sent_follow_requests.include?(user.id) %>
+          <%= f.submit 'Send Follow Request', data: { controller: "follow-buttons", action: "click->follow-buttons#change_request_button", "follow-buttons-target": "button" } %>
       <% end %>
       <br>
     <% end %>
   <% end %>
 <% end %>
 
-<%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+<br>
+
+<%= button_to 'Log out', destroy_user_session_path, method: :delete %>  
 
 Can send follow requests. Now: <br>
-- update the button once the request has been sent <br>
-- make the request visible on the view of the user who received it  <br>
-- let the user accept or reject it (editing the status in the FollowRequests table and the relationship in the User table) <br>
+- let users unfollow other users <br>
 - after creating posts, make the posts of followed users visible 
