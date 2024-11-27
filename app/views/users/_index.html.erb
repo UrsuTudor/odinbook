@@ -13,16 +13,8 @@
   <% received_follow_requests.each do |req| %>
     <%= req.sender.name %>
 
-    <%= form_with(url: accept_follow_request_user_path(req.sender.id), method: :post) do |f| %>
-      <%= f.hidden_field :follower_id, value: req.sender.id %>
-      <%= f.hidden_field :request_id, value: req.id %>
-      <%= f.submit 'Accept', data: { controller: "follow-buttons", action: "click->follow-buttons#change_accept_button", "follow-buttons-target": "button" } %>
-    <% end %>
-
-    <%= form_with(url: reject_follow_request_user_path(req.sender.id), method: :post) do |f| %>
-      <%= f.hidden_field :request_id, value: req.id %>
-      <%= f.submit 'Delete', data: { controller: "follow-buttons", action: "click->follow-buttons#change_reject_button", "follow-buttons-target": "button" } %>
-    <% end %>
+    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), req, "Accept", "click->follow-buttons#change_accept_button") %>
+    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), req, "Delete", "click->follow-buttons#change_reject_button") %>
     <br>
   <%end%>
 
@@ -33,6 +25,10 @@
       <%= user.name %>
       <% unless sent_follow_requests.include?(user.id) %>
           <%= f.submit 'Send Follow Request', data: { controller: "follow-buttons", action: "click->follow-buttons#change_request_button", "follow-buttons-target": "button" } %>
+      <% end %>
+
+      <% if current_user.followees.include?(user)%>
+        <%= f.submit 'Following', disabled: true %>
       <% end %>
       <br>
     <% end %>

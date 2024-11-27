@@ -24,3 +24,9 @@ class UsersController < ApplicationController
     current_user.followees.delete(followee)
   end
 end
+
+# Unfollowing:
+# - button next to person saying 'unfollow'
+# - unfollow has to:
+#  - remove the followers/followee relationship
+#  - delete the initial follow request (or update it with a 'unfollowed' status, but the first option is easier for the small scope of this and especially since I have no reason to track follow request history)
