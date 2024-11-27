@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'users' do %>
-  <h1>Logged in as: <%= current_user.name %> </h1> 
+<h1>Logged in as: <%= current_user.name %> </h1> 
 
 <h3> Followers: </h3>
 <% current_user.followers.each do |f| %>
@@ -20,18 +20,7 @@
 
 <h3>People:</h3>
   <% users.each do |user| %>
-    <%= form_with(url: follow_requests_path, method: :post) do |f| %>
-      <%= f.hidden_field :recipient_id, value: user.id %>
-      <%= user.name %>
-      <% unless sent_follow_requests.include?(user.id) %>
-          <%= f.submit 'Send Follow Request', data: { controller: "follow-buttons", action: "click->follow-buttons#change_request_button", "follow-buttons-target": "button" } %>
-      <% end %>
-
-      <% if current_user.followees.include?(user)%>
-        <%= f.submit 'Following', disabled: true %>
-      <% end %>
-      <br>
-    <% end %>
+    <%= follow_request_form(user, sent_follow_requests)%>
   <% end %>
 <% end %>
 
