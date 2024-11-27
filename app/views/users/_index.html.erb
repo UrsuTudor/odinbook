@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'users' do %>
+
 <h1>Logged in as: <%= current_user.name %> </h1> 
 
 <h3> Followers: </h3>
@@ -8,21 +8,24 @@
 
 <% if received_follow_requests.any? %>
   <h3>You have some follow requests pending:</h3>
-<% end %>
 
   <% received_follow_requests.each do |req| %>
     <%= req.sender.name %>
 
-    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), req, "Accept", "click->follow-buttons#change_accept_button") %>
-    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), req, "Delete", "click->follow-buttons#change_reject_button") %>
+  <div data-controller= "follow-buttons">
+    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), req, "Accept", "click->follow-buttons#change_accept_button", "follow-buttons.acceptButton") %>
+    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), req, "Delete", "click->follow-buttons#change_reject_button", "follow-buttons.rejectButton") %>
     <br>
+  </div>
   <%end%>
+
+<% end %>
 
 <h3>People:</h3>
   <% users.each do |user| %>
     <%= follow_request_form(user, sent_follow_requests)%>
-  <% end %>
 <% end %>
+
 
 <br>
 

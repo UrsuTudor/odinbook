@@ -1,5 +1,5 @@
-<%= turbo_frame_tag 'users' do %>
- <%= render partial: 'users/index', locals: { users: @users, 
-                                              sent_follow_requests: @sent_follow_requests, 
-                                              received_follow_requests: @received_follow_requests } %>
-<% end %>
+
+<%= render partial: 'users/index', locals: { users: @users, 
+                                             sent_follow_requests: @sent_follow_requests, 
+                                             received_follow_requests: @received_follow_requests } %>
+

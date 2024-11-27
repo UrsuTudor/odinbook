@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['button']
+  static targets = ['button', "acceptButton", "rejectButton"]
 
   change_request_button() {
     event.preventDefault()
@@ -15,15 +15,17 @@ export default class extends Controller {
     event.preventDefault()
     event.target.closest('form').submit()
 
-    this.buttonTarget.value = 'Request accepted'
-    this.buttonTarget.disabled = true
+    this.acceptButtonTarget.value = 'Request accepted'
+    this.acceptButtonTarget.disabled = true
+    this.rejectButtonTarget.disabled = true
   }
 
   change_reject_button() {
     event.preventDefault()
     event.target.closest('form').submit()
 
-    this.buttonTarget.value = 'Request deleted'
-    this.buttonTarget.disabled = true
+    this.rejectButtonTarget.value = 'Request deleted'
+    this.rejectButtonTarget.disabled = true
+    this.acceptButtonTarget.disabled = true
   }
 }
