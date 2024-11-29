@@ -5,4 +5,8 @@ class FollowRequest < ApplicationRecord
   def self.create_request(sender, recipient)
     create(sender: sender, recipient: recipient, status: "pending")
   end
+
+  def self.delete_request(sender, recipient)
+    find_by(sender: sender, recipient: recipient)&.destroy
+  end
 end

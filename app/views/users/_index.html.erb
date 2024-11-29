@@ -24,13 +24,10 @@
 <h3>People:</h3>
   <% users.each do |user| %>
     <%= follow_request_form(user, sent_follow_requests)%>
-<% end %>
+    <%= unfollow_button(user)%>
+  <% end %>
 
 
 <br>
 
 <%= button_to 'Log out', destroy_user_session_path, method: :delete %>  
-
-Can send follow requests. Now: <br>
-- let users unfollow other users <br>
-- after creating posts, make the posts of followed users visible 

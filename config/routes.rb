@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     member do
       post "accept_follow_request"
       post "reject_follow_request"
+      delete "unfollow"
     end
   end
 
