@@ -1,4 +1,7 @@
-<%= render partial: 'users/index', locals: { users: @users, 
-                                             sent_follow_requests: @sent_follow_requests, 
-                                             received_follow_requests: @received_follow_requests } %>
+<h1>Hey there, <%= image_tag(current_user.profile_picture, height: "40", style: "border-radius: 50%;") if current_user.profile_picture.attached? %> 
+<%= link_to current_user.name, current_user %>! </h1> 
 
+<%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
+
+<%= render partial: 'users/index', locals: { users: @users, 
+                                             sent_follow_requests: @sent_follow_requests } %>

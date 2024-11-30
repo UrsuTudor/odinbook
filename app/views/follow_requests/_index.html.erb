@@ -1,0 +1,24 @@
+<% if received_follow_requests.any? %>
+  <h3>You have some follow requests pending:</h3>
+
+  <% received_follow_requests.each do |req| %>
+    <%= image_tag(req.sender.profile_picture, height: "40", style: "border-radius: 50%;") if req.sender.profile_picture.attached? %>
+    <%= link_to req.sender.name, req.sender %>
+
+  <!--Buttons that allow the current_user to accept or reject a FollowRequest. 
+  They use helpers from follow_requests_helper.-->
+  <div data-controller= "follow-buttons">
+    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), 
+                                     req, 
+                                     "Accept", 
+                                     "click->follow-buttons#change_accept_button", 
+                                     "follow-buttons.acceptButton") %>
+    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), 
+                                     req, 
+                                     "Delete", 
+                                     "click->follow-buttons#change_reject_button", 
+                                     "follow-buttons.rejectButton") %>
+    <br>
+  </div>
+  <%end%>
+<% end %>
