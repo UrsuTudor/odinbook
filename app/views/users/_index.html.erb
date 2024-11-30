@@ -1,10 +1,5 @@
 
-<h1>Logged in as: <%= current_user.name %> </h1> 
-
-<h3> Followers: </h3>
-<% current_user.followers.each do |f| %>
-  <%= f.name%> <br>
-<% end %>
+<h1>Logged in as: <%= link_to current_user.name, current_user %> </h1> 
 
 <% if received_follow_requests.any? %>
   <h3>You have some follow requests pending:</h3>
@@ -18,13 +13,14 @@
     <br>
   </div>
   <%end%>
-
 <% end %>
 
-<h3>People:</h3>
+<h2>People:</h2>
   <% users.each do |user| %>
+    <%= link_to user.name, user %>
     <%= follow_request_form(user, sent_follow_requests)%>
     <%= unfollow_button(user)%>
+    <br>
   <% end %>
 
 

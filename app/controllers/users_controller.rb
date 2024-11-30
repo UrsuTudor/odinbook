@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   def index
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def accept_follow_request
     ActiveRecord::Base.transaction do
       # Changes relationship between users

@@ -1,0 +1,6 @@
+<h1><%= "#{@user.name}'s profile" %></h1>
+
+<h3> Followers: </h3>
+<% @user.followers.each do |f| %>
+  <%= f.name%> <br>
+<% end %>
