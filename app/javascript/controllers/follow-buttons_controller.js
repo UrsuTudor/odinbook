@@ -17,7 +17,7 @@ export default class extends Controller {
 
     this.acceptButtonTarget.value = 'Request accepted'
     this.acceptButtonTarget.disabled = true
-    this.rejectButtonTarget.disabled = true
+    this.rejectButtonTarget.style.display = "none"
   }
 
   change_reject_button() {
@@ -26,6 +26,6 @@ export default class extends Controller {
 
     this.rejectButtonTarget.value = 'Request deleted'
     this.rejectButtonTarget.disabled = true
-    this.acceptButtonTarget.disabled = true
+    this.acceptButtonTarget.style.display = "none"
   }
 }

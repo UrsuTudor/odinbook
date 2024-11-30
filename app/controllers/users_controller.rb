@@ -32,5 +32,7 @@ class UsersController < ApplicationController
 
       FollowRequest.delete_request(current_user.id, params[:followee_id])
     end
+
+    redirect_to root_path
   end
 end

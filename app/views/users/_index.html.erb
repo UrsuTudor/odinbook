@@ -1,15 +1,25 @@
 
-<h1>Logged in as: <%= link_to current_user.name, current_user %> </h1> 
+<h1>Hey there, <%= link_to current_user.name, current_user %>!</h1> 
 
 <% if received_follow_requests.any? %>
   <h3>You have some follow requests pending:</h3>
 
   <% received_follow_requests.each do |req| %>
-    <%= req.sender.name %>
+    <%= link_to req.sender.name, req.sender %>
 
+  <!--Buttons that allow the current_user to accept or reject a FollowRequest. 
+  They use helpers from follow_requests_helper.-->
   <div data-controller= "follow-buttons">
-    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), req, "Accept", "click->follow-buttons#change_accept_button", "follow-buttons.acceptButton") %>
-    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), req, "Delete", "click->follow-buttons#change_reject_button", "follow-buttons.rejectButton") %>
+    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), 
+                                     req, 
+                                     "Accept", 
+                                     "click->follow-buttons#change_accept_button", 
+                                     "follow-buttons.acceptButton") %>
+    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), 
+                                     req, 
+                                     "Delete", 
+                                     "click->follow-buttons#change_reject_button", 
+                                     "follow-buttons.rejectButton") %>
     <br>
   </div>
   <%end%>
@@ -18,11 +28,13 @@
 <h2>People:</h2>
   <% users.each do |user| %>
     <%= link_to user.name, user %>
+
+  <!--Display a follow request button if the user has no sent request from the current_user  in the database
+  or an unfollow_button if the user is already followed.-->
     <%= follow_request_form(user, sent_follow_requests)%>
     <%= unfollow_button(user)%>
     <br>
   <% end %>
-
 
 <br>
 

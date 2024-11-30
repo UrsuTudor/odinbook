@@ -1,5 +1,10 @@
 <h1><%= "#{@user.name}'s profile" %></h1>
 
+<ul>
+  <li>Age:<%= @user.age %></li>
+  <li>City:<%= @user.city %></li>
+</ul>
+
 <h3> Followers: </h3>
 <% @user.followers.each do |f| %>
   <%= f.name%> <br>
