@@ -1,7 +1,20 @@
-<h1>Hey there, <%= image_tag(current_user.profile_picture, height: "40", style: "border-radius: 50%;") if current_user.profile_picture.attached? %> 
+<h1>Hey there, <%= small_user_picture(current_user) %> 
 <%= link_to current_user.name, current_user %>! </h1> 
 
 <%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
 
 <%= render partial: 'users/index', locals: { users: @users, 
                                              sent_follow_requests: @sent_follow_requests } %>
+
+<%= render partial: 'posts/form', locals: { post: @post } %>
+
+<% @posts.each do |post| %>
+  <h3><%= link_to small_user_picture(post.author), post.author %>
+  <%= post.title%></h3>
+  <%= post.body %>
+<% end %>
+
+Users can now make posts and they are visible on the index page. A user's posts are also visible on their own page:
+- only show posts of followed users in the index page
+- allow users to like posts
+- allow users to comment on posts

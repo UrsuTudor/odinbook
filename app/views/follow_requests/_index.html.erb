@@ -2,7 +2,7 @@
   <h3>You have some follow requests pending:</h3>
 
   <% received_follow_requests.each do |req| %>
-    <%= image_tag(req.sender.profile_picture, height: "40", style: "border-radius: 50%;") if req.sender.profile_picture.attached? %>
+    <%= small_user_picture(req.sender) %>
     <%= link_to req.sender.name, req.sender %>
 
   <!--Buttons that allow the current_user to accept or reject a FollowRequest. 

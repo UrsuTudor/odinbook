@@ -1,5 +1,5 @@
-<h1><%= "#{@user.name}'s profile" %></h1>
-<%= image_tag(@user.profile_picture, height: "300", style: "border-radius: 50%;") if @user.profile_picture.attached? %>
+<h1><%= @user.name %></h1>
+<%= big_user_picture %>
 
 <%= profile_picture_form%>
 
@@ -11,9 +11,15 @@
 <h3> Followers: </h3>
 <% @user.followers.each do |f| %>
   <%= image_tag(f.profile_picture, height: "40", style: "border-radius: 50%;") if f.profile_picture.attached? %>
-  <%= f.name%> <br>
+  <%= link_to f.name, f%> <br>
 <% end %>
 
 <br>
 
 <%= link_to "Home", root_path%>
+
+<% @user.posts.each do |post| %>
+  <h3><%= small_user_picture(post.author) %>
+  <%= post.title%></h3>
+  <%= post.body %>
+<% end %>

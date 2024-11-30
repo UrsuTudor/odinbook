@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :posts, only: [ :create ]
+
   resources :follow_requests, only: [ :create ]
 
 

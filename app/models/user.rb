@@ -9,12 +9,12 @@ class User < ApplicationRecord
   validates :age, numericality: { only_integer: true }
 
   has_many :followers, class_name: "User", foreign_key: "follower_id"
-
   has_many :followees, class_name: "User", foreign_key: "followee_id"
-
 
   has_many :sent_follow_requests, class_name: "FollowRequest", foreign_key: "sender_id"
   has_many :received_follow_requests, class_name: "FollowRequest", foreign_key: "recipient_id"
 
   has_one_attached :profile_picture
+
+  has_many :posts
 end
