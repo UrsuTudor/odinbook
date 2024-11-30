@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [ :index, :show ] do
+  resources :users, only: [ :index, :show, :edit, :update ] do
     member do
       post "accept_follow_request"
       post "reject_follow_request"

@@ -6,6 +6,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    @user.update(user_params)
+    redirect_to @user
+  end
+
   def accept_follow_request
     ActiveRecord::Base.transaction do
       # Changes relationship between users
@@ -34,5 +41,11 @@ class UsersController < ApplicationController
     end
 
     redirect_to root_path
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :city, :profile_picture, :age)
   end
 end

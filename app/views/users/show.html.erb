@@ -1,4 +1,7 @@
 <h1><%= "#{@user.name}'s profile" %></h1>
+<%= image_tag(@user.profile_picture, height: "300", style: "border-radius: 50%;") if @user.profile_picture.attached? %>
+
+<%= edit_profile_picture%>
 
 <ul>
   <li>Age:<%= @user.age %></li>
@@ -9,3 +12,7 @@
 <% @user.followers.each do |f| %>
   <%= f.name%> <br>
 <% end %>
+
+<br>
+
+<%= link_to "Home", root_path%>

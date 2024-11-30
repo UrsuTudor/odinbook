@@ -1,5 +1,5 @@
-
-<h1>Hey there, <%= link_to current_user.name, current_user %>!</h1> 
+<h1>Hey there, <%= image_tag(current_user.profile_picture, height: "40", style: "border-radius: 50%;") if current_user.profile_picture.attached? %> 
+<%= link_to current_user.name, current_user %>! </h1> 
 
 <% if received_follow_requests.any? %>
   <h3>You have some follow requests pending:</h3>
@@ -27,6 +27,7 @@
 
 <h2>People:</h2>
   <% users.each do |user| %>
+    <%= image_tag(user.profile_picture, height: "40", style: "border-radius: 50%;") if user.profile_picture.attached? %>
     <%= link_to user.name, user %>
 
   <!--Display a follow request button if the user has no sent request from the current_user  in the database
