@@ -16,6 +16,7 @@
 
 <h2><%= @user.name %>'s posts:</h2>
 <% @user.posts.each do |post| %>
+<div> __________________________________________________________________________________________________________</div>
   <h3><%= link_to small_user_picture(post.author), post.author %>
   <%= post.title%></h3>
   <%= post.body %>

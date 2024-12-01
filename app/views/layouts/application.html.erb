@@ -23,7 +23,7 @@
       <h1>Hey there, <%= user_links(current_user) %>! </h1> 
       <nav>
         <%= link_to "Home", root_path %> |
-        <%= button_to 'Log out', destroy_user_session_path, method: :delete %>  
+        <div style="display: inline-block;"> <%= button_to 'Log out', destroy_user_session_path, method: :delete %>  
       </nav>
     </div>
     <% end %>

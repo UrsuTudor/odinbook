@@ -6,11 +6,16 @@
 <h2>What do you want to tell the world?</h2>
 
 <%= render partial: 'posts/form', locals: { post: @post } %>
-
+<div> __________________________________________________________________________________________________________</div>
 <% @posts.each do |post| %>
   <h3><%= link_to small_user_picture(post.author), post.author %>
   <%= post.title%></h3>
-  <%= post.body %>
+  <%= post.body %><br> <br>
+  <span>
+    <div style="display: inline-block;"><%= render partial: 'likes/form', locals: {post: post}%></div>
+    <%= post.likes.count%>
+  <div> __________________________________________________________________________________________________________</div>
+  </span>
 <% end %>
  
 Users can now make posts and they are visible on the index page. A user's posts are also visible on their own page:
