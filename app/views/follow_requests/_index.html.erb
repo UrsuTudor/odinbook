@@ -1,5 +1,5 @@
 <% if received_follow_requests.any? %>
-  <h3>You have some follow requests pending:</h3>
+  <h2>You have some follow requests pending:</h2>
 
   <% received_follow_requests.each do |req| %>
     <%= user_links(req.sender)%>

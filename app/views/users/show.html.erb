@@ -8,16 +8,13 @@
   <li>City:<%= @user.city %></li>
 </ul>
 
-<h3> Followers: </h3>
+<h2> Followers: </h2>
 <% @user.followers.each do |f| %>
   <%= user_links(f)%>
   <br>
 <% end %>
 
-<br>
-
-<%= link_to "Home", root_path%>
-
+<h2><%= @user.name %>'s posts:</h2>
 <% @user.posts.each do |post| %>
   <h3><%= link_to small_user_picture(post.author), post.author %>
   <%= post.title%></h3>
