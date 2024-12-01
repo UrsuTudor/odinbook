@@ -1,5 +1,4 @@
-<h1>Hey there, <%= small_user_picture(current_user) %> 
-<%= link_to current_user.name, current_user %>! </h1> 
+<h1>Hey there, <%= user_links(current_user) %>!
 
 <%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
 

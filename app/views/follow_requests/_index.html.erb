@@ -2,8 +2,7 @@
   <h3>You have some follow requests pending:</h3>
 
   <% received_follow_requests.each do |req| %>
-    <%= small_user_picture(req.sender) %>
-    <%= link_to req.sender.name, req.sender %>
+    <%= user_links(req.sender)%>
 
   <!--Buttons that allow the current_user to accept or reject a FollowRequest. 
   They use helpers from follow_requests_helper.-->

@@ -1,7 +1,6 @@
 <h2>People:</h2>
   <% users.each do |user| %>
-    <%= small_user_picture(user) %>
-    <%= link_to user.name, user %>
+    <%= user_links(user)%>
 
   <!--Display a follow request button if the user has no sent request from the current_user  in the database
   or an unfollow_button if the user is already followed.-->
