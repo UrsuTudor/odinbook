@@ -1,11 +1,15 @@
+
 <%= turbo_frame_tag "new_post" do %>
-  <%= form_with model: @post, url: posts_path do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title%> <br> <br>
+  <div data-controller= "post-button">
+    <%= form_with model: @post, url: posts_path , data: { turbo: true } do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, data: { target: "post-button.textField" } %> <br> <br>
+    
+      <%= f.label :body %>
+      <%= f.text_field :body, data: { target: 'post-button.textField' } %> <br> <br>
 
-    <%= f.label :body %>
-    <%= f.text_field :body%> <br> <br>
-
-    <%= f.submit "Post" %> <br>
-  <% end %>
+      <%= f.submit "Post", data: { action: "click->post-button#clear_fields", target: "postButton" } %> <br>
+    <% end %>
+  </div>
 <% end %>
+
