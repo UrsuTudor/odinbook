@@ -1,0 +1,8 @@
+<h3><%= link_to small_user_picture(post.author), post.author %>
+    <%= post.title%></h3>
+    <%= post.body %><br> <br>
+    <span>
+      <div style="display: inline-block;"><%= render partial: 'likes/form', locals: {post: post}%></div>
+      <%= post.likes.count%>
+    <div> __________________________________________________________________________________________________________</div>
+</span>
