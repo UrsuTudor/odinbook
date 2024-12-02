@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @like = Like.new
   end
 
+  def new
+    @post = current_user.posts.new
+  end
+
   def create
     @post = current_user.posts.new(post_params)
     @post.save

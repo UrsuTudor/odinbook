@@ -3,10 +3,15 @@
 <%= render partial: 'users/index', locals: { users: @users, 
                                              sent_follow_requests: @sent_follow_requests } %>
 
-<h2>What do you want to tell the world?</h2>
+<h2>Want to say something to the world?</h2>
 
-<%= render partial: 'posts/form', locals: { post: @post } %>
+<%= turbo_frame_tag "new_post" do %>
+  <%= button_to "Make a post!", new_post_path, method: :get %>
+<% end %>
+
+
 <div> __________________________________________________________________________________________________________</div>
+
 <% @posts.each do |post| %>
   <h3><%= link_to small_user_picture(post.author), post.author %>
   <%= post.title%></h3>

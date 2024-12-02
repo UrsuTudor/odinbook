@@ -22,8 +22,8 @@
     <div style="position: sticky; top: 0; background: #fff; z-index: 1000; padding: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
       <h1>Hey there, <%= user_links(current_user) %>! </h1> 
       <nav>
-        <%= link_to "Home", root_path %> |
-        <div style="display: inline-block;"> <%= button_to 'Log out', destroy_user_session_path, method: :delete %>  
+        <div style="display: inline-block;"> <%= button_to "Home", root_path, method: :get %> </div> | 
+        <div style="display: inline-block;"> <%= button_to 'Log out', destroy_user_session_path, method: :delete %> </div>
       </nav>
     </div>
     <% end %>
