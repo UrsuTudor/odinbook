@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :follow_requests, only: [ :create ]
 
-  resources :likes, only: [ :create ]
+  resources :likes, only: [ :create, :destroy ]
 
 
   root to: "posts#index"

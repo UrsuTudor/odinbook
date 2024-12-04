@@ -3,9 +3,9 @@
 <%= post.body %><br> <br>
 
 <div style="display: inline-block;">
-  <%= render partial: 'likes/form', locals: {post: post}%>
+  <%= like_button(post) %>
 </div>
-<div id="likes">
+<div id="likes" style="display: inline-block;">
   <%= post.likes.count%>
 </div>
 
