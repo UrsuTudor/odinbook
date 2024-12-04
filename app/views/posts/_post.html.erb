@@ -5,7 +5,7 @@
 <div style="display: inline-block;">
   <%= like_button(post) %>
 </div>
-<div id="likes" style="display: inline-block;">
+<div id="likes_<%= post.id %>" style="display: inline-block;">
   <%= post.likes.count%>
 </div>
 
