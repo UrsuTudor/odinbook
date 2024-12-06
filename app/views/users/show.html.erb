@@ -2,6 +2,10 @@
 <%= big_user_picture %>
 
 <%= profile_picture_form%>
+<% unless @user == current_user %>
+  <%= follow_request_form(@user, @sent_requests) %>
+  <%= unfollow_button(@user) %>
+<% end %>
 
 <ul>
   <li>Age:<%= @user.age %></li>

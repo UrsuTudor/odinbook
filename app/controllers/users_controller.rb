@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     # given how many views and components link to it.
     @comment = Comment.new
     @user = User.find(params[:id])
+    @sent_requests = current_user.sent_follow_requests.pluck(:recipient_id)
   end
 
   def update
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
       FollowRequest.delete_request(current_user.id, params[:followee_id])
     end
 
-    redirect_to root_path
+    redirect_to request.referrer
   end
 
   private
