@@ -1,7 +1,8 @@
 <%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
 
 <%= render partial: 'users/index', locals: { users: @users, 
-                                             sent_follow_requests: @sent_follow_requests } %>
+                                             sent_follow_requests: @sent_follow_requests,
+                                             comment: @comment } %>
 
 <h2>Want to say something to the world?</h2>
 <%= turbo_frame_tag "new_post" do %>
@@ -15,6 +16,6 @@
 
  
 Users can now make posts and they are visible on the index page. A user's posts are also visible on their own page:
-- allow users to like posts
-  - fix new posts' fields not having the same value of posts that survived a page refresh
-- allow users to comment on posts
+- fix @comment not being accessible to user#show and prohibiting the creation of commits
+- allow users to send follow requests directly from the profile page of a user 
+- figure out why relationships are forgiven after a time; followees don't remember their followers at some point

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "comments/new"
+  get "comments/create"
   devise_for :users
   resources :users, only: [ :index, :show, :edit, :update ] do
     member do
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   resources :follow_requests, only: [ :create ]
 
   resources :likes, only: [ :create, :destroy ]
+
+  resources :comments, only: [ :create ]
 
 
   root to: "posts#index"

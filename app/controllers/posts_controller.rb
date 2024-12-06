@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @sent_follow_requests = FollowRequest.where(sender: current_user, recipient: @users).pluck(:recipient_id)
     @received_follow_requests = FollowRequest.includes(:sender).where(sender: @users, recipient: current_user, status: "pending")
     @like = Like.new
+    @comment = Comment.new
   end
 
   def new
