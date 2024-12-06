@@ -13,7 +13,9 @@ module LikesHelper
       # since it normally gets that from the controller via turbo_stream
       render partial: "likes/unlike_form", locals: { post: post, like: (Like.find_by(user_id: current_user.id, post_id: post.id)) }
     else
-      render partial: "likes/form", locals: { post: post }
+      # without instantiating a new Like here, the form will not generate properly when a new post is created and attached
+      # to the DOM via turbo_stream
+      render partial: "likes/form", locals: { post: post, like: (Like.new) }
     end
   end
 end
