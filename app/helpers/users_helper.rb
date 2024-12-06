@@ -9,7 +9,7 @@ module UsersHelper
   end
 
   def small_user_picture(user)
-    image_tag(user.profile_picture, height: "40", style: "border-radius: 50%;") if current_user.profile_picture.attached?
+    image_tag(user.profile_picture, height: "40", style: "border-radius: 50%;") if user.profile_picture.attached?
   end
 
   def big_user_picture
