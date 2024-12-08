@@ -2,7 +2,9 @@ source "https://rubygems.org"
 
 group :development do
   gem "guard"
+  gem "letter_opener"
 end
+
 gem "guard-minitest"
 gem "minitest-rails", "~> 7.1.0"
 

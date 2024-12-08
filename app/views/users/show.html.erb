@@ -1,12 +1,13 @@
-<h1><%= @user.name %></h1>
-<%= big_user_picture %>
+<h1><%= @user.name %> </h1>
 
-<%= profile_picture_form%>
 <% unless @user == current_user %>
   <%= follow_request_form(@user, @sent_requests) %>
   <%= unfollow_button(@user) %>
 <% end %>
 
+<%= big_user_picture %>
+
+<%= profile_picture_form%>
 <ul>
   <li>Age:<%= @user.age %></li>
   <li>City:<%= @user.city %></li>

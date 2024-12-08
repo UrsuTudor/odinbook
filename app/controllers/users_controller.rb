@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def show
     # instanttiating a @comment variable here is the easiest way to ensure that the user#show view will have access to it
     # given how many views and components link to it.

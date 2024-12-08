@@ -13,7 +13,7 @@ module UsersHelper
   end
 
   def big_user_picture
-    image_tag(@user.profile_picture, height: "300", style: "border-radius: 50%;") if @user.profile_picture.attached?
+    image_tag(@user.profile_picture, height: "500", style: "border-radius: 50%;") if @user.profile_picture.attached?
   end
 
   def user_links(user)
