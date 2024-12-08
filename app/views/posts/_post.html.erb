@@ -14,8 +14,7 @@
   <%= render post.comments %>
   <br>
   <%= render partial: 'comments/form', locals: { post: post, 
-                                             comment: @comment } %>
-  <%= @comment.class%>
+                                             comment: new_comment } %>
 </div>
 
 <div> __________________________________________________________________________________________________________</div>
