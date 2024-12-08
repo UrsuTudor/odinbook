@@ -13,6 +13,9 @@
 <div id="comments_<%= post.id %>", style="margin-left: 50px">
   <%= render post.comments %>
   <br>
+</div>
+
+<div style="margin-left: 50px">
   <%= render partial: 'comments/form', locals: { post: post, 
                                              comment: new_comment } %>
 </div>
