@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+gem "dotenv", groups: [ :development, :test ]
+
 group :development do
   gem "guard"
   gem "letter_opener"
