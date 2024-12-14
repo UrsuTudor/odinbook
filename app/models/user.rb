@@ -8,8 +8,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :age, numericality: { only_integer: true }
 
-  has_many :followers, class_name: "User", foreign_key: "follower_id"
-  has_many :followees, class_name: "User", foreign_key: "followee_id"
+  has_and_belongs_to_many :followers, class_name: "User", join_table: "users_followers_followees", foreign_key: "followee_id", association_foreign_key: "follower_id"
+  has_and_belongs_to_many :followees, class_name: "User", join_table: "users_followers_followees", foreign_key: "follower_id", association_foreign_key: "followee_id"
 
   has_many :sent_follow_requests, class_name: "FollowRequest", foreign_key: "sender_id"
   has_many :received_follow_requests, class_name: "FollowRequest", foreign_key: "recipient_id"
