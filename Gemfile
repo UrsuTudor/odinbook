@@ -1,10 +1,18 @@
 source "https://rubygems.org"
 
-gem "dotenv", groups: [ :development, :test ]
+group :development, :test do
+  gem "rspec-rails", "~> 6.0"
+  gem "dotenv"
+  gem "factory_bot_rails", "~> 6.0"
+end
 
 group :development do
   gem "guard"
   gem "letter_opener"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 gem "guard-minitest"
