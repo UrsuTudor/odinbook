@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 group :development, :test do
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.1"
   gem "dotenv"
   gem "factory_bot_rails", "~> 6.0"
 end
