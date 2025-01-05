@@ -18,7 +18,7 @@ class LikesController < ApplicationController
 
   def destroy
     @post = Post.find(params[:like][:post_id])
-    @like = Like.find_by(like_params)
+    @like = Like.find(params[:id])
     respond_to do |format|
       if @like.destroy
         format.turbo_stream do

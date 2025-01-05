@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
       # Updates request status
       request = FollowRequest.find(params[:request_id])
-      request.update!(status: "accepted") # use update! to raise an exception if it fails
+      request.update!(status: "accepted")
     end
   end
 
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
       FollowRequest.delete_request(current_user.id, params[:followee_id])
     end
 
-    redirect_to request.referrer
+    redirect_to root_path
   end
 
   private
