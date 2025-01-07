@@ -4,5 +4,6 @@ FactoryBot.define do
     age { 25 }
     sequence(:email) { |n| "user#{n}@example.com" }
     password { '123456' }
+    city { "Sample city" }
   end
 end
