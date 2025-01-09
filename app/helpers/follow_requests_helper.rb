@@ -1,3 +1,5 @@
+require "pry-byebug"
+
 module FollowRequestsHelper
   def follow_request_decision_form(url, request, button_text, stimulus_action, stimulus_target)
     form_with(url: url, method: :post) do |f|
@@ -9,8 +11,8 @@ module FollowRequestsHelper
   end
 
   def follow_request_form(user, sent_follow_requests)
-    form_with(url: follow_requests_path, method: :post) do |f|
-      unless sent_follow_requests.include?(user.id)
+    unless sent_follow_requests.include?(user.id)
+      form_with(url: follow_requests_path, method: :post) do |f|
         concat f.hidden_field :recipient_id, value: user.id
         concat f.submit "Send Follow Request", data: { controller: "follow-buttons", action: "click->follow-buttons#change_request_button", target: "follow-buttons.button" }
       end
