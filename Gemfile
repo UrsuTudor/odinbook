@@ -16,7 +16,7 @@ group :test do
 end
 
 gem "guard-minitest"
-gem "minitest-rails", "~> 7.1.0"
+gem "minitest-rails", "~> 7.2.0"
 gem "pry-byebug", "~> 3.10", ">= 3.10.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
