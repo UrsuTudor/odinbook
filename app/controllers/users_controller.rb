@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       # Changes relationship between users
       follower = User.find(params[:follower_id])
       follower.followees << current_user
-      current_user.followers << follower
 
       # Updates request status
       request = FollowRequest.find(params[:request_id])

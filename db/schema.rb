@@ -91,7 +91,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_10_103847) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.bigint "follower_id"
+    t.bigint "followee_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["followee_id"], name: "index_users_on_followee_id"
+    t.index ["follower_id"], name: "index_users_on_follower_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -111,6 +115,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_10_103847) do
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "users", "users", column: "followee_id"
+  add_foreign_key "users", "users", column: "follower_id"
   add_foreign_key "users_followers_followees", "users", column: "followee_id"
   add_foreign_key "users_followers_followees", "users", column: "follower_id"
 end

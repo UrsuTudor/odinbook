@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get "comments/new"
   get "comments/create"
+
   devise_for :users
+
   resources :users, only: [ :index, :show, :edit, :update ] do
     member do
       post "accept_follow_request"
