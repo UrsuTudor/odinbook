@@ -1,0 +1,108 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+html {
+  background-color: #edf6ff;
+}
+
+.navContainer {
+  position: sticky;
+  background-color: #213448;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ECEFCA;
+
+  padding: 20px
+}
+
+.userBanner {
+  display: flex;
+  gap: 15px;
+}
+
+.userLink {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+
+  transition: color, 0.2s;
+}
+
+#navUserLink {
+  color: #ECEFCA;
+}
+
+#navUserLink:hover {
+  color: #94B4C1;
+}
+
+#navUserLink:active {
+  color: #68808a;
+  transition: color, 0s;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.navBtn {
+  background-color: #213448;
+  color: #ECEFCA;
+
+  border: none;
+  border-radius: 20px;
+
+  cursor: pointer;
+  transition: color, 0.2s;
+
+  font-weight: bold;
+}
+
+.navBtn:hover {
+  background-color: #94B4C1;
+  color: #213448;
+}
+
+.navBtn:active {
+  background-color: #69808a;
+  transition: color, 0s;
+}

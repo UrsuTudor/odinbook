@@ -16,8 +16,8 @@ module UsersHelper
     image_tag(@user.profile_picture, height: "500", style: "border-radius: 50%;") if @user.profile_picture.attached?
   end
 
-  def user_links(user)
-    link_to user do
+  def user_links(user, options = {})
+    link_to user, options do
       concat small_user_picture(user)
       concat user.name
     end
