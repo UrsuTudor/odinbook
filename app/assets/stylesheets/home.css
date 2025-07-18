@@ -60,18 +60,34 @@ html {
 .userLink {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   text-decoration: none;
 
-  transition: color, 0.2s;
+  font-weight: bold;
+  color: black;
+  border-radius: 20px;
+
+  width: fit-content;
+  padding-right: 10px;
+}
+
+.userLink:hover {
+  background-color: #b1b9c2;
+}
+
+.userLink:active {
+  background-color: #7e868f;
 }
 
 #navUserLink {
   color: #ECEFCA;
+  width: fit-content;
+  transition: color, 0.2s;
 }
 
 #navUserLink:hover {
   color: #94B4C1;
+  background-color: #213448;
 }
 
 #navUserLink:active {
@@ -109,5 +125,6 @@ html {
 
 .mainContainer {
   display: grid;
-  grid-template: 1fr 1fr / 2fr 1fr
+  grid-template: 1fr 1fr / 2fr 1fr;
+  padding-left: 20px;
 }

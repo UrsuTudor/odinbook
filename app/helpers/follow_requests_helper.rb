@@ -6,7 +6,8 @@ module FollowRequestsHelper
       concat f.hidden_field(:follower_id, value: request.sender.id)
       concat f.hidden_field(:request_id, value: request.id)
       concat f.submit(button_text, data: {
-        action: stimulus_action, target: stimulus_target })
+        action: stimulus_action, target: stimulus_target },
+        class: "submitBtn", id: "reqBtn")
     end
   end
 

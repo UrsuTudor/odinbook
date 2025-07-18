@@ -1,0 +1,27 @@
+.reqListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reqContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border-top: 1px #213448 solid;
+  padding-top: 10px;
+  width: 90%;
+}
+
+.reqBtnContainer {
+  display: flex;
+  gap: 10px;
+}
+
+#reqBtn {
+  width: 100px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  border-radius: 5px;
+}

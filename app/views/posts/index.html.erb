@@ -1,20 +1,24 @@
-<%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
+<div class="mainContainer">
+  <%= stylesheet_link_tag "followReq", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "userList", "data-turbo-track": "reload" %>
 
-<%= render partial: 'users/index', locals: { users: @users, 
-                                             sent_follow_requests: @sent_follow_requests,
-                                             comment: @comment } %>
+  <%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
 
-<div class="postFormContainer">
-  <h2>Want to say something to the world?</h2>
-  <%= turbo_frame_tag "new_post" do %>
-    <%= button_to "Make a post!", new_post_path, method: :get %>
-  <% end %>
+  <%= render partial: 'users/index', locals: { users: @users, 
+                                              sent_follow_requests: @sent_follow_requests,
+                                              comment: @comment } %>
+
+  <div class="postFormContainer">
+    <h2>Want to say something to the world?</h2>
+    <%= turbo_frame_tag "new_post" do %>
+      <%= button_to "Make a post!", new_post_path, method: :get %>
+    <% end %>
+  </div>
+
+  <div id="posts">
+    <%= render @posts %>
+  </div>
 </div>
-
-<div id="posts">
-  <%= render @posts %>
-</div>
-
 <!--
 Confirmed to work: 
   - creating comments

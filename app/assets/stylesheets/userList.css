@@ -10,21 +10,6 @@
   gap: 10px;
 }
 
-.userLink {
-  font-weight: bold;
-  color: black;
-  transition: color, 0s;
-  border-radius: 20px;
-}
-
-.userLink:hover {
-  background-color: #b1b9c2;
-}
-
-.userLink:active {
-  background-color: #7e868f;
-}
-
 .submitBtn {
   border: none;
   cursor: pointer;
