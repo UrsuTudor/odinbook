@@ -106,3 +106,8 @@ html {
   background-color: #69808a;
   transition: color, 0s;
 }
+
+.mainContainer {
+  display: grid;
+  grid-template: 1fr 1fr / 2fr 1fr
+}

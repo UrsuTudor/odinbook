@@ -1,10 +1,16 @@
+<%= stylesheet_link_tag "userList", "data-turbo-track": "reload" %>
+
+<div class="userListContainer">
 <h2>People:</h2>
   <% users.each do |user| %>
-    <%= user_links(user)%>
+    <div class="userContainer">
+      <%= user_links(user, class: "userLink")%>
 
-  <!--Display a follow request button if the user has not sent request from the current_user  in the database
-  or an unfollow_button if the user is already followed.-->
-    <div style="display: inline-block;"><%= follow_request_form(user, sent_follow_requests)%></div>
-    <div style="display: inline-block;"><%= unfollow_button(user)%></div>
-    <br>
+      <!--Display a follow request button if the user has not sent request from the current_user  in the database
+      or an unfollow_button if the user is already followed.-->
+      <div><%= follow_request_form(user, sent_follow_requests)%></div>
+      <div><%= unfollow_button(user)%></div>
+    </div>
   <% end %>
+
+</div>

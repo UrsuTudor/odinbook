@@ -4,12 +4,13 @@
                                              sent_follow_requests: @sent_follow_requests,
                                              comment: @comment } %>
 
-<h2>Want to say something to the world?</h2>
-<%= turbo_frame_tag "new_post" do %>
-  <%= button_to "Make a post!", new_post_path, method: :get %>
-<% end %>
+<div class="postFormContainer">
+  <h2>Want to say something to the world?</h2>
+  <%= turbo_frame_tag "new_post" do %>
+    <%= button_to "Make a post!", new_post_path, method: :get %>
+  <% end %>
+</div>
 
-<div> __________________________________________________________________________________________________________</div>
 <div id="posts">
   <%= render @posts %>
 </div>

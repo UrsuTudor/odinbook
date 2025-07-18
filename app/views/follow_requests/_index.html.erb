@@ -1,23 +1,25 @@
 <% if received_follow_requests.any? %>
-  <h2>You have some follow requests pending:</h2>
+<div class="requestContainer">
+    <h2>You have some follow requests pending:</h2>
 
-  <% received_follow_requests.each do |req| %>
-    <%= user_links(req.sender)%>
+    <% received_follow_requests.each do |req| %>
+      <%= user_links(req.sender)%>
 
-  <!--Buttons that allow the current_user to accept or reject a FollowRequest. 
-  They use helpers from follow_requests_helper.-->
-  <div data-controller= "follow-buttons">
-    <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), 
-                                     req, 
-                                     "Accept", 
-                                     "click->follow-buttons#change_accept_button", 
-                                     "follow-buttons.acceptButton") %>
-    <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), 
-                                     req, 
-                                     "Delete", 
-                                     "click->follow-buttons#change_reject_button", 
-                                     "follow-buttons.rejectButton") %>
-    <br>
+    <!--Buttons that allow the current_user to accept or reject a FollowRequest. 
+    They use helpers from follow_requests_helper.-->
+    <div data-controller= "follow-buttons">
+      <%= follow_request_decision_form(accept_follow_request_user_path(req.sender.id), 
+                                      req, 
+                                      "Accept", 
+                                      "click->follow-buttons#change_accept_button", 
+                                      "follow-buttons.acceptButton") %>
+      <%= follow_request_decision_form(reject_follow_request_user_path(req.sender.id), 
+                                      req, 
+                                      "Delete", 
+                                      "click->follow-buttons#change_reject_button", 
+                                      "follow-buttons.rejectButton") %>
+      <br>
+    </div>
   </div>
   <%end%>
 <% end %>

@@ -14,7 +14,7 @@ module FollowRequestsHelper
     unless sent_follow_requests.include?(user.id)
       form_with(url: follow_requests_path, method: :post) do |f|
         concat f.hidden_field :recipient_id, value: user.id
-        concat f.submit "Send Follow Request", data: { controller: "follow-buttons", action: "click->follow-buttons#change_request_button", target: "follow-buttons.button" }
+        concat f.submit "Send Follow Request", data: { controller: "follow-buttons", action: "click->follow-buttons#change_request_button", target: "follow-buttons.button" }, class: "submitBtn"
       end
     end
   end
@@ -23,7 +23,7 @@ module FollowRequestsHelper
     if current_user.followees.include?(user)
       form_with url: unfollow_user_path(user), method: :delete do |f|
         concat f.hidden_field(:followee_id, value: user.id)
-        concat f.submit "Unfollow"
+        concat f.submit "Unfollow", class: "submitBtn"
       end
     end
   end
