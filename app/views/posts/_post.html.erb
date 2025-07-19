@@ -1,7 +1,7 @@
 <div class="postContainer">
   <h3><%= user_links(post.author)%></h3>
 
-  <%= post.body %><br> <br>
+  <%= simple_format(post.body) %><br> <br>
 
   <div style="display: inline-block;">
     <%= like_button(post) %>

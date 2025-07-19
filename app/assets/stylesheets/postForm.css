@@ -1,0 +1,28 @@
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 25px;
+}
+
+.input {
+  width: fit-content;
+  border: 2px solid #d5dce4;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid #abb1b9;
+}
+
+#post_body {
+  width: 75%;
+  height: 200px;
+  border-radius: 20px;
+  padding: 10px
+}
+
+#postSubmitBtn {
+  width: 75%;
+  border-radius: 10px;
+}

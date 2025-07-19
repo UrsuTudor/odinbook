@@ -1,14 +1,15 @@
 <%= turbo_frame_tag "new_post" do %>
+  <%= stylesheet_link_tag "postForm", "data-turbo-track": "reload" %>
+
   <div data-controller= "post-button">
-    <%= form_with model: @post, url: posts_path , data: { turbo: true } do |f| %>
+    <%= form_with model: @post, url: posts_path , data: { turbo: true }, class: "newPostForm" do |f| %>
       <%= f.label :title %>
-      <%= f.text_field :title, data: { target: "post-button.textField" } %> <br> <br>
+      <%= f.text_field :title, data: { target: "post-button.textField" }, autocomplete: "off", class: "input" %>
     
       <%= f.label :body %>
-      <%= f.text_field :body, data: { target: 'post-button.textField' } %> <br> <br>
+      <%= f.text_area :body, data: { target: 'post-button.textField' }, autocomplete: "off",  class: "input" %>
 
-      <%= f.submit "Post", data: { action: "click->post-button#clear_fields", target: "postButton" } %> <br>
+      <%= f.submit "Post", data: { action: "click->post-button#clear_fields", target: "postButton" }, class: "submitBtn", id: "postSubmitBtn" %>
     <% end %>
   </div>
 <% end %>
-

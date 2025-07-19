@@ -1,13 +1,16 @@
 .userListContainer {
-  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  grid-row: 1 / -1;
   grid-column: 2;
+  gap: 10px;
 }
 
 .userContainer {
   display: grid;
   grid-template: 1fr / 1fr 1.5fr;
   align-items: center;
-  gap: 10px;
+  gap: 10px
 }
 
 .submitBtn {

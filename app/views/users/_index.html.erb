@@ -6,8 +6,8 @@
 
       <!--Display a follow request button if the user has not sent request from the current_user  in the database
       or an unfollow_button if the user is already followed.-->
-      <div><%= follow_request_form(user, sent_follow_requests)%></div>
-      <div><%= unfollow_button(user)%></div>
+      <%= follow_request_form(user, sent_follow_requests)%>
+      <%= unfollow_button(user)%>
     </div>
   <% end %>
 

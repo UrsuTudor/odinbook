@@ -9,8 +9,8 @@
   flex-direction: column;
   gap: 10px;
 
-  border-top: 1px #213448 solid;
-  padding-top: 10px;
+  border-bottom: 1px #213448 solid;
+  padding-bottom: 10px;
   width: 90%;
 }
 
