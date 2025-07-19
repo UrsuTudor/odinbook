@@ -19,7 +19,6 @@
 
   <body>
     <% unless devise_controller? %>
-    <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
       <nav class="navContainer">
         <h1 class="userBanner">Hey there, <%= user_links(current_user, class: "userLink", id: "navUserLink") %>! </h1> 
 

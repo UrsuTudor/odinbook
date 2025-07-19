@@ -1,6 +1,4 @@
 <%= turbo_frame_tag "new_post" do %>
-  <%= stylesheet_link_tag "postForm", "data-turbo-track": "reload" %>
-
   <div data-controller= "post-button">
     <%= form_with model: @post, url: posts_path , data: { turbo: true }, class: "newPostForm" do |f| %>
       <%= f.label :title %>

@@ -6,8 +6,8 @@
 }
 
 .input {
-  width: fit-content;
   border: 2px solid #d5dce4;
+  resize: none;
 }
 
 .input:focus {
@@ -20,6 +20,10 @@
   height: 200px;
   border-radius: 20px;
   padding: 10px
+}
+
+#post_title {
+  width: 35%;
 }
 
 #postSubmitBtn {

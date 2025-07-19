@@ -2,6 +2,6 @@
   <%= form_with model: like , url: like_path(like), method: :delete do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :post_id, value: post.id%>
-    <%= f.submit "Unlike" %>
+    <%= f.submit "Unlike", class: "submitBtn" %>
   <% end %>
 <% end %>

@@ -1,24 +1,28 @@
 <div class="postContainer">
-  <h3><%= user_links(post.author)%></h3>
+  <h3 class="postTitle"><%= post.title %>, by <%= user_links(post.author, class: "userLink")%></h3>
 
-  <%= simple_format(post.body) %><br> <br>
-
-  <div style="display: inline-block;">
-    <%= like_button(post) %>
-  </div>
-  
-  <div id="likes_<%= post.id %>" style="display: inline-block;">
-    <%= post.likes.count%>
+  <div class="postBody">
+    <%= simple_format(post.body) %>
   </div>
 
-  <h3>Comments:</h3>
-  <div id="comments_<%= post.id %>", style="margin-left: 50px">
+
+<div class="utilitiesContainer">
+  <div class="likesContainer">
+      <div id="likes_<%= post.id %>" class="likeCount">
+        <%= post.likes.count%>
+      </div>
+
+      <%= like_button(post) %>
+    </div>
+
+    <div>
+      <%= render partial: 'comments/form', locals: { post: post, 
+                                                comment: new_comment } %>
+    </div>
+</div>
+
+<h3>The Conversation:</h3>
+  <div id="comments_<%= post.id %>">
     <%= render post.comments %>
-    <br>
-  </div>
-
-  <div style="margin-left: 50px">
-    <%= render partial: 'comments/form', locals: { post: post, 
-                                              comment: new_comment } %>
   </div>
 </div>

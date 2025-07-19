@@ -1,3 +1,6 @@
-<%= user_links(comment.author) %> <br> <br>
-<div style="margin-left: 50px"><%= comment.body %></div>
-<div> __________________________________________________________________________________________________________</div>
+<div class="commentContainer">
+  <%= user_links(comment.author, class: "userLink") %>
+  <div class="commentBody">
+    <%= simple_format(comment.body) %>
+  </div>
+</div>
