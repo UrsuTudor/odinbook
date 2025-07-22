@@ -21,7 +21,7 @@
   border-radius: 10px;
   padding: 25px;
 
-  background-color: #f4faff;
+  background-color: #c0e0ff;
   border-bottom: 2px solid #dfe5eb;
   border-right: 2px solid #dfe5eb;
 }
@@ -71,4 +71,10 @@
 
 .commentForm .submitBtn {
   flex: 1;
+}
+
+.postTitle {
+  border-bottom: 1px #213448 solid;
+  padding-bottom: 10px;
+  width: fit-content;
 }

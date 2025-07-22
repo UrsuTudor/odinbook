@@ -1,18 +1,20 @@
 <div class="mainContainer">
-  <%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
+  <div class="postsContainer">
+    <%= render partial: 'follow_requests/index', locals: { received_follow_requests: @received_follow_requests } %>
+    
+    <div class="postFormContainer">
+      <h2>Want to say something to the world?</h2>
+      <%= turbo_frame_tag "new_post" do %>
+        <%= button_to "Make a post!", new_post_path, method: :get, class: "submitBtn" %>
+      <% end %>
+    </div>
+
+    <div id="posts">
+      <%= render @posts %>
+    </div>
+  </div>
 
   <%= render partial: 'users/index', locals: { users: @users, 
                                               sent_follow_requests: @sent_follow_requests,
                                               comment: @comment } %>
-
-  <div class="postFormContainer">
-    <h2>Want to say something to the world?</h2>
-    <%= turbo_frame_tag "new_post" do %>
-      <%= button_to "Make a post!", new_post_path, method: :get, class: "submitBtn" %>
-    <% end %>
-  </div>
-
-  <div id="posts">
-    <%= render @posts %>
-  </div>
 </div>

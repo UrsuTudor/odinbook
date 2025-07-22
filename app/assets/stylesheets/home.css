@@ -124,7 +124,13 @@ html {
 }
 
 .mainContainer {
-  display: grid;
-  grid-template: 1fr 1fr / 2fr 1fr;
-  padding-left: 20px;
+  display: flex;
+  padding: 20px;
+}
+
+.postsContainer {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

@@ -1,24 +1,49 @@
-<h1><%= @user.name %> </h1>
+<div class="profileContainer">
+  <div class="infoContainer">
+    <div class="avatarContainer">
+      <h1><%= @user.name %> </h1>
 
-<% unless @user == current_user %>
-  <%= follow_request_form(@user, @sent_requests) %>
-  <%= unfollow_button(@user) %>
-<% end %>
+      <% unless @user == current_user %>
+        <%= follow_request_form(@user, @sent_requests) %>
+        <%= unfollow_button(@user) %>
+      <% end %>
 
-<%= big_user_picture %>
+      <%= big_user_picture %>
+      <%= profile_picture_form%>
+    </div>
 
-<%= profile_picture_form%>
-<ul>
-  <li>Age:<%= @user.age %></li>
-  <li>City:<%= @user.city %></li>
-</ul>
+    <ul class="infoList">
+      <li>Age: <%= @user.age %></li>
+      <li>City: <%= @user.city %></li>
+    </ul>
 
-<h2> Followers: </h2>
-<% @user.followers.each do |f| %>
-  <%= user_links(f)%>
-  <br>
-<% end %>
+    <h2> Followers: </h2>
+    <% @user.followers.each do |f| %>
+      <%= user_links(f, class: "userLink")%>
+      <br>
+    <% end %>
+  </div>
 
-<h2><%= @user.name %>'s posts:</h2>
+  <div class="postsContainer">
+    <% if @user == current_user %>
+      <div class="postFormContainer">
+        <h2>Want to say something to the world?</h2>
+        <%= turbo_frame_tag "new_post" do %>
+          <%= button_to "Make a post!", new_post_path, method: :get, class: "submitBtn" %>
+        <% end %>
+      </div>
+    <%end%>
 
-<%= render @user.posts%>
+    <h2>
+      <% if @user != current_user %>
+        <%= @user.name %>'s posts:
+      <% else %> 
+        Your posts:
+      <% end %>
+    </h2>
+
+    <div id="posts">
+      <%= render @user.posts%>
+    </div>
+  </div>
+</div>
