@@ -20,7 +20,7 @@
 }
 
 #reqBtn {
-  width: 100px;
+  width: fit-content;
   padding: 5px 10px 5px 10px;
   text-align: center;
   border-radius: 5px;
