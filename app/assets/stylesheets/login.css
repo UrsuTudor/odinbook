@@ -1,0 +1,36 @@
+.loginContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px
+}
+
+.regLink {
+  text-decoration: none;
+  color: #213448;
+  font-weight: bold;
+  font-size: 18px;
+  transition: font-size, 0.2s;
+}
+
+.regLink:hover {
+  font-size: 20px;
+}
+
+.regLink:active {
+  transition: font-size, 0s;
+  font-size: 18px
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.new_user {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

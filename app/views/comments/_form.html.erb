@@ -1,4 +1,4 @@
-<div data-controller= "post-button">
+<div class="commentFormContainer" data-controller= "post-button">
   <%= form_with model: comment, url: comments_path, class: "commentForm" do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :post_id, value: post.id %>

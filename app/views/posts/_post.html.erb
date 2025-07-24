@@ -15,10 +15,8 @@
       <%= like_button(post) %>
     </div>
 
-    <div>
-      <%= render partial: 'comments/form', locals: { post: post, 
-                                                comment: new_comment } %>
-    </div>
+    <%= render partial: 'comments/form', locals: { post: post, 
+                                                   comment: new_comment } %>
 </div>
 
 <h3>The Conversation:</h3>
