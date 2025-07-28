@@ -7,6 +7,7 @@ This is one of my earlier projects, a full stack Ruby on Rails Social Feed app.
 This app supports several key features:
 
 - Devise Authentication
+- Functioning Mailer
 - Making Posts
 - Liking Posts
 - Commenting on Posts
@@ -20,6 +21,12 @@ See details below.
 - Users can sign up, log in, and manage their sessions securely via Devise.
 - Custom parameters (`name`, `city`, `age`) are permitted during registration.
 - Devise views have been minimally styled to match the app’s overall color scheme and design.
+
+## Functioning Mailer
+- A welcome email will be sent to each user on account creation using the Rails Action Mailer.
+- The email includes:
+  - Confirmation of the user's username.
+  - A direct link to the login page of the website.
 
 ## Making Posts
 
