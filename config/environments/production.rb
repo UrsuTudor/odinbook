@@ -3,6 +3,10 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  %w[/data/tmp /data/cache /data/storage].each do |path|
+    FileUtils.mkdir_p(path) unless Dir.exist?(path)
+  end
+
   # Code is not reloaded between requests.
   config.enable_reloading = false
 

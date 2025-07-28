@@ -79,7 +79,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: odinbook_production
+  adapter: sqlite3
+  database: /data/production.sqlite3
   username: odinbook
   password: <%= ENV["ODINBOOK_DATABASE_PASSWORD"] %>
